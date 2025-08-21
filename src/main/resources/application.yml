@@ -23,7 +23,7 @@ spring:
 
 app:
   cors:
-    allowed-origins: "http://localhost:5173,http://localhost:3000"
+    allowed-origins: "http://localhost:5173,http://localhost:3000,,https://turnos-frontend-l425d0pso-sss-projects-1be29493.vercel.app"
   auth:
     base-url: "https://auth-service-7lof.onrender.com"
   catalog:
