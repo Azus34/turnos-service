@@ -1,0 +1,41 @@
+server:
+  port: 8083
+
+spring:
+  datasource:
+    url: jdbc:mysql://tramway.proxy.rlwy.net:10471/turnosdb?useSSL=true&allowPublicKeyRetrieval=true&serverTimezone=UTC
+    username: root
+    password: LuvfHNyVaPvLLrHaAmTDdhzLSNexLgIW
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+        format_sql: true
+  jackson:
+    serialization:
+      WRITE_DATES_AS_TIMESTAMPS: false
+  main:
+    allow-bean-definition-overriding: true
+
+app:
+  cors:
+    allowed-origins: "http://localhost:5173,http://localhost:3000"
+  auth:
+    base-url: "https://auth-service-7lof.onrender.com"
+  catalog:
+    base-url: "https://catalog-service-hvwn.onrender.com"
+
+security:
+  jwt:
+    issuer: "auth-service"  # Debe coincidir con el issuer que pone el AuthService
+    public-key-url: "https://auth-service-7lof.onrender.com/auth/keys/public"  # URL que publica tu llave pública
+
+logging:
+  level:
+    org.springframework.security: DEBUG
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
